@@ -1,3 +1,7 @@
+ //Problem Name: Merge Without Extra Space
+ //Source : GeeksForGeeks
+ /****************************************/
+        
         int nextGap(int gap){
                 if(gap <= 1)
                     return 0;
@@ -16,7 +20,7 @@
         { 
             long int i = n - 1, j = 0;
             
-            //Method 1: Swap and sirt with time complexity O((n+m)log(n+m))
+            //Method 1: Swap and sort with time complexity O((n+m)log(n+m))
             //Space complexity : O(1)
     
             while(i >= 0 && j < m){ //->O(n+m)
