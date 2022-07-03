@@ -1,4 +1,4 @@
-	 //Problem Name: Reverse a String 
+ //Problem Name: Reverse a String 
  //Source : GeeksForGeeks
  /****************************************/
 void reverse(string str, string &res){
