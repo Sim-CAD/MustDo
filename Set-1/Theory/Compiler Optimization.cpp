@@ -5,6 +5,7 @@
 //We are going to discuss about two types of compiler optimizations:
 //a) SIMD
 //b) Loop unrolling
+//c) Return Value Optimization (RVO)
 
 // a) SIMD(Single Instruction Multiple Data):
 
@@ -64,5 +65,45 @@ for(int i = 0; i < 2; i++)
 cout<<"Hello";
 cout<<"Hello";
 
+
+/*******************************************************************************************************************************/
+
+// c) Return Value Optimization(Copy Elision)
+//-> It avoids unnecessary call to the constructors.
+//-> Return-value optimization is a compiler technique to avoid copying an object that a function returns as its value, including avoiding creation of a temporary object.
+//-> It helps to save memory and time.
+//->As of C++17, Copy Elision is guaranteed when an object is returned directly.
+
+class Base{
+    public:
+    Base(){
+        cout<<"Constructor of Base "<<endl;
+    }
+    Base(const Base &){
+        cout<<"Copy constructor Of Base "<<endl;
+    }
+};
+Base fun1(){
+    return Base();
+}
+
+int main(){
+    Base b = fun1();
+    //This calls fun1()
+    //Which creates object of Base class
+    //For creation default constructor is called.
+    //After the object is created, the same object is returned.
+    //For returning it creates a temporary object by calling copy constructor.
+    //Finally, the temp object will get copied to object b so one more time copy constructor gets called.
+    return 0;
+}
+
+// Without compiler optimization expected Output:(use flag -fno-elide-constructors)
+// Constructor of Base
+// Copy constructor of Base
+// Copy constructor of Base
+
+//With compiler optimization the output is:
+// Constructor of Base
        
 
