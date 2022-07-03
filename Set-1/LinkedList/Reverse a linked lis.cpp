@@ -1,4 +1,4 @@
-  //Problem Name: Reverse a linked lis
+  //Problem Name: Reverse a linked list
  //Source : GeeksForGeeks
  /****************************************/
  struct Node* reverseList(struct Node *head)
