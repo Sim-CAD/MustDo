@@ -1,3 +1,6 @@
+	 //Problem Name: Permutation of a given string
+ //Source : GeeksForGeeks
+ /****************************************/
 	void helper(string S, int id, set<string> &ans){
 	    if(id == S.length()-1){
 	        ans.insert(S);
